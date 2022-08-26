@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "cctype": "c",
+        "*.tcc": "c",
+        "bitset": "c",
+        "unordered_map": "c",
+        "vector": "c",
+        "functional": "c",
+        "memory": "c",
+        "optional": "c",
+        "string_view": "c",
+        "system_error": "c",
+        "thread": "c",
+        "string": "c",
+        "string.h": "c",
+        "ctype.h": "c",
+        "resource.h": "c",
+        "istream": "c",
+        "streambuf": "c"
+    }
+}
