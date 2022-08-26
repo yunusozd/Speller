@@ -46,6 +46,7 @@ bool check(const char *word)
             cursor = cursor->next;
         }
     }
+    //free(cursor);
     return false;
 }
 
@@ -63,8 +64,7 @@ bool load(const char *dictionary)
 
     while (fscanf(file, "%s", word) != EOF) 
     {
-        node* new_word = (node *) malloc(sizeof(node));
-        
+        node* new_word = (node *) calloc(1, sizeof(node));
         strcpy(new_word->word, word);
         int key = hash(new_word->word);
 
@@ -73,11 +73,14 @@ bool load(const char *dictionary)
         if (head == NULL) {
             table[key] = new_word;
             counter++;
-        } else {
+        } 
+        else 
+        {
             new_word->next = table[key];
             table[key] = new_word;
             counter++;
         }
+        //free(new_word);
     }
     fclose(file);
     return true;
@@ -96,13 +99,14 @@ bool unload(void)
         if (table[i])
         {
             node* head = table[i];
-            node* cursor = head;
+            node* cursor;
+            cursor = head;
         
             while (cursor != NULL) {
                 node* tmp = cursor;
                 cursor = cursor->next;
                 free(tmp);
-        }
+            }
         }
         
     }
